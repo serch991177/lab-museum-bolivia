@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'animate.css';
+
+:root {
+  --lab-blue: #003f88;
+  --lab-sky: #00a6d6;
+  --lab-red: #d62828;
+  --lab-white: #ffffff;
+  --lab-dark: #07111f;
+  --lab-dark-soft: #0d1b2f;
+  --lab-gold: #f6c453;
+  --lab-muted: #a8b3c7;
+  --lab-card: rgba(255, 255, 255, 0.08);
+  --lab-border: rgba(255, 255, 255, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(0, 166, 214, 0.18), transparent 34%),
+    radial-gradient(circle at top right, rgba(214, 40, 40, 0.14), transparent 30%),
+    linear-gradient(135deg, #050914 0%, #07111f 48%, #0b1830 100%);
+  color: var(--lab-white);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.main-shell {
+  min-height: calc(100vh - 160px);
+}

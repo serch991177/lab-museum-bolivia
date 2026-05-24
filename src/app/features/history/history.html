@@ -1,0 +1,148 @@
+<section class="history-page">
+
+  <div class="history-page__glow history-page__glow--blue"></div>
+  <div class="history-page__glow history-page__glow--red"></div>
+
+  <section class="history-hero">
+
+    <div class="history-hero__container">
+
+      <article class="history-hero__content animate__animated animate__fadeInLeft">
+
+        <div class="history-hero__eyebrow">
+          <span></span>
+          Archivo histórico documental
+        </div>
+
+        <h1>
+          Historia del
+          <strong>Lloyd Aéreo Boliviano</strong>
+        </h1>
+
+        <p>
+          Un recorrido visual por los momentos más importantes del LAB:
+          sus orígenes en Cochabamba, sus primeros aviones, su consolidación
+          nacional, la llegada de la era jet, sus rutas internacionales y el
+          legado que permanece en la memoria boliviana.
+        </p>
+
+      </article>
+
+      <article class="history-hero__panel animate__animated animate__fadeInRight">
+
+        <div
+          class="history-hero__stat"
+          *ngFor="let stat of documentaryStats"
+        >
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="history-documentary">
+
+    <div class="history-documentary__container">
+
+      <div class="history-documentary__intro">
+
+        <div>
+          <span class="history-documentary__label">Relato histórico</span>
+
+          <h2>
+            De los primeros vuelos al recuerdo de una generación.
+          </h2>
+        </div>
+
+        <p>
+          Esta línea de tiempo resume las etapas principales del Lloyd Aéreo
+          Boliviano. Puedes filtrar por periodo para explorar sus orígenes,
+          consolidación, modernización, expansión y legado.
+        </p>
+
+      </div>
+
+      <div class="history-filters">
+
+        <button
+          type="button"
+          class="history-filters__button"
+          *ngFor="let phase of phases"
+          [class.history-filters__button--active]="selectedPhase === phase"
+          (click)="selectPhase(phase)"
+        >
+          {{ phase }}
+        </button>
+
+      </div>
+
+      <div class="history-insights">
+
+        <article
+          class="history-insights__card"
+          *ngFor="let insight of insights"
+        >
+          <h3>{{ insight.title }}</h3>
+          <p>{{ insight.description }}</p>
+        </article>
+
+      </div>
+
+      <div class="history-timeline">
+
+        <div class="history-timeline__rail"></div>
+
+        <article
+          class="history-timeline__item"
+          *ngFor="let milestone of filteredMilestones; let i = index"
+          [class.history-timeline__item--right]="i % 2 !== 0"
+          [class.history-timeline__item--highlight]="milestone.highlight"
+        >
+
+          <div class="history-timeline__marker">
+            <span></span>
+          </div>
+
+          <div class="history-timeline__card">
+
+            <div class="history-timeline__meta">
+              <strong>{{ milestone.year }}</strong>
+              <small>{{ milestone.tag }}</small>
+            </div>
+
+            <h3>{{ milestone.title }}</h3>
+
+            <p>
+              {{ milestone.description }}
+            </p>
+
+            <div class="history-timeline__phase">
+              {{ milestone.phase }}
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+      <div class="history-documentary__closing">
+
+        <span>Memoria aérea boliviana</span>
+
+        <h2>
+          LAB Museum Bolivia busca preservar una historia que todavía vive
+          en fotografías, relatos, aviones, rutas y recuerdos.
+        </h2>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>

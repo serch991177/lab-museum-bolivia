@@ -1,0 +1,113 @@
+<header class="navbar">
+  <nav class="navbar__container">
+
+    <a 
+      class="navbar__brand" 
+      routerLink="/" 
+      aria-label="Ir al inicio de LAB Museum Bolivia"
+      (click)="closeMenu()"
+    >
+      <span class="navbar__logo-mark">LAB</span>
+
+      <span class="navbar__brand-text">
+        <strong>LAB Museum</strong>
+        <small>Bolivia</small>
+      </span>
+    </a>
+
+    <div class="navbar__links">
+      <a 
+        *ngFor="let item of navItems"
+        [routerLink]="item.route"
+        routerLinkActive="navbar__link--active"
+        class="navbar__link"
+      >
+        {{ item.label }}
+      </a>
+    </div>
+
+    <a 
+      routerLink="/acerca" 
+      routerLinkActive="navbar__cta--active"
+      class="navbar__cta"
+    >
+      Acerca del proyecto
+    </a>
+
+    <button 
+      type="button"
+      class="navbar__toggle"
+      [class.navbar__toggle--active]="isMenuOpen"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Abrir o cerrar menú de navegación"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+
+  <div 
+    class="navbar__mobile-backdrop"
+    [class.navbar__mobile-backdrop--show]="isMenuOpen"
+    (click)="closeMenu()"
+  ></div>
+
+  <aside 
+    class="navbar__mobile-menu"
+    [class.navbar__mobile-menu--open]="isMenuOpen"
+  >
+    <div class="navbar__mobile-header">
+      <div>
+        <strong>LAB Museum</strong>
+        <small>Bolivia</small>
+      </div>
+
+      <button 
+        type="button"
+        class="navbar__mobile-close"
+        (click)="closeMenu()"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <div class="navbar__mobile-links">
+      <a 
+        routerLink="/" 
+        routerLinkActive="navbar__mobile-link--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="navbar__mobile-link"
+        (click)="closeMenu()"
+      >
+        Inicio
+      </a>
+
+      <a 
+        *ngFor="let item of navItems"
+        [routerLink]="item.route"
+        routerLinkActive="navbar__mobile-link--active"
+        class="navbar__mobile-link"
+        (click)="closeMenu()"
+      >
+        {{ item.label }}
+      </a>
+
+      <a 
+        routerLink="/acerca"
+        routerLinkActive="navbar__mobile-link--active"
+        class="navbar__mobile-link navbar__mobile-link--cta"
+        (click)="closeMenu()"
+      >
+        Acerca del proyecto
+      </a>
+    </div>
+
+    <div class="navbar__mobile-footer">
+      <span>Una memoria digital de la aviación boliviana.</span>
+    </div>
+  </aside>
+</header>

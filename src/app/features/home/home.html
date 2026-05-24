@@ -1,0 +1,162 @@
+<section class="hero">
+
+  <div class="hero__background-glow hero__background-glow--blue"></div>
+  <div class="hero__background-glow hero__background-glow--red"></div>
+
+  <div class="hero__container">
+
+    <article class="hero__content animate__animated animate__fadeInLeft">
+
+      <div class="hero__eyebrow">
+        <span></span>
+        Museo digital de aviación boliviana
+      </div>
+
+      <h1>
+        Lloyd Aéreo Boliviano,
+        <strong>una leyenda que sigue volando en la memoria.</strong>
+      </h1>
+
+      <p class="hero__description">
+        LAB Museum Bolivia es un proyecto informativo dedicado a conservar
+        la historia, aviones, rutas, videos y recuerdos del Lloyd Aéreo Boliviano,
+        una de las aerolíneas más emblemáticas de Bolivia.
+      </p>
+
+      <div class="hero__actions">
+        <a routerLink="/historia" class="hero__button hero__button--primary">
+          Ver historia
+        </a>
+
+        <a routerLink="/flota" class="hero__button hero__button--secondary">
+          Explorar flota
+        </a>
+      </div>
+
+      <div class="hero__stats">
+        <div 
+          class="hero__stat"
+          *ngFor="let stat of heroStats"
+        >
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+      </div>
+
+    </article>
+
+    <article class="hero__visual animate__animated animate__fadeInRight">
+
+      <div class="hero__image-card">
+
+        <div class="hero__image-wrapper">
+          <img 
+            src="/images/lab-hero.avif" 
+            alt="Avión histórico del Lloyd Aéreo Boliviano"
+          >
+        </div>
+
+        <div class="hero__image-overlay">
+          <span>Archivo histórico</span>
+          <strong>Lloyd Aéreo Boliviano</strong>
+        </div>
+
+      </div>
+
+      <div class="hero__floating-card hero__floating-card--top">
+        <span>Desde Cochabamba</span>
+        <strong>al cielo de Bolivia</strong>
+      </div>
+
+      <div class="hero__floating-card hero__floating-card--bottom">
+        <span>Memoria viva</span>
+        <strong>aviación, rutas y legado</strong>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+<section class="history-preview">
+
+  <div class="history-preview__container">
+
+    <div class="history-preview__header">
+
+      <div class="history-preview__eyebrow">
+        <span></span>
+        Historia resumida
+      </div>
+
+      <div class="history-preview__title-block">
+        <h2>
+          Una aerolínea que marcó generaciones en Bolivia.
+        </h2>
+
+        <p>
+          El Lloyd Aéreo Boliviano no fue solo una empresa de transporte aéreo:
+          fue parte de la identidad nacional, del crecimiento de las rutas comerciales
+          y de la memoria colectiva de la aviación boliviana.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="history-preview__cards">
+
+      <article
+        class="history-preview__card"
+        *ngFor="let card of legacyCards"
+      >
+        <span>{{ card.value }}</span>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+      </article>
+
+    </div>
+
+    <div class="history-preview__timeline-wrapper">
+
+      <div class="history-preview__timeline-line"></div>
+
+      <article
+        class="history-preview__timeline-item"
+        *ngFor="let milestone of historyMilestones; let i = index"
+        [class.history-preview__timeline-item--right]="i % 2 !== 0"
+      >
+
+        <div class="history-preview__timeline-dot">
+          <span></span>
+        </div>
+
+        <div class="history-preview__timeline-content">
+          <div class="history-preview__timeline-top">
+            <strong>{{ milestone.year }}</strong>
+            <small>{{ milestone.tag }}</small>
+          </div>
+
+          <h3>{{ milestone.title }}</h3>
+          <p>{{ milestone.description }}</p>
+        </div>
+
+      </article>
+
+    </div>
+
+    <div class="history-preview__footer">
+
+      <div>
+        <span>Explora la historia completa</span>
+        <strong>Desde sus primeros vuelos hasta su legado actual.</strong>
+      </div>
+
+      <a routerLink="/historia">
+        Ver línea de tiempo completa
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
