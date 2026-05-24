@@ -1,1 +1,110 @@
-<p>routes works!</p>
+<section class="routes-page">
+
+  <section class="routes-hero">
+
+    <div class="routes-hero__container">
+
+      <article class="routes-hero__content animate__animated animate__fadeInLeft">
+        <div class="routes-hero__eyebrow">
+          <span></span>
+          Rutas históricas
+        </div>
+
+        <h1>
+          Las rutas que conectaron
+          <strong>Bolivia con el mundo.</strong>
+        </h1>
+
+        <p>
+          El LAB fue parte de la integración aérea nacional e internacional,
+          conectando ciudades bolivianas con destinos estratégicos de América
+          y Europa.
+        </p>
+      </article>
+
+      <article class="routes-map animate__animated animate__fadeInRight">
+        <div class="routes-map__point routes-map__point--cochabamba">
+          <span></span>
+          Cochabamba
+        </div>
+
+        <div class="routes-map__point routes-map__point--lapaz">
+          <span></span>
+          La Paz
+        </div>
+
+        <div class="routes-map__point routes-map__point--santacruz">
+          <span></span>
+          Santa Cruz
+        </div>
+
+        <div class="routes-map__line routes-map__line--one"></div>
+        <div class="routes-map__line routes-map__line--two"></div>
+        <div class="routes-map__line routes-map__line--three"></div>
+
+        <strong>LAB</strong>
+        <small>Red aérea histórica</small>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="routes-section">
+
+    <div class="routes-section__container">
+
+      <div class="routes-section__header">
+        <div>
+          <span class="routes-section__label">Mapa de memoria</span>
+          <h2>Explora destinos nacionales e internacionales.</h2>
+        </div>
+
+        <p>
+          Esta sección presenta una vista informativa de ciudades y rutas
+          asociadas a la historia del Lloyd Aéreo Boliviano.
+        </p>
+      </div>
+
+      <div class="route-filters">
+        <button
+          type="button"
+          class="route-filters__button"
+          *ngFor="let category of categories"
+          [class.route-filters__button--active]="selectedCategory === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category }}
+        </button>
+      </div>
+
+      <div class="routes-grid">
+
+        <article
+          class="route-card"
+          *ngFor="let route of filteredRoutes"
+          [class.route-card--highlight]="route.highlight"
+        >
+          <div class="route-card__top">
+            <span>{{ route.category }}</span>
+            <strong>{{ route.country }}</strong>
+          </div>
+
+          <h3>{{ route.city }}</h3>
+
+          <small *ngIf="route.airport">
+            {{ route.airport }}
+          </small>
+
+          <p>
+            {{ route.description }}
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>

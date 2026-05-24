@@ -1,1 +1,104 @@
-<p>gallery works!</p>
+<section class="gallery-page">
+
+  <section class="gallery-hero">
+
+    <div class="gallery-hero__container">
+
+      <article class="gallery-hero__content animate__animated animate__fadeInLeft">
+        <div class="gallery-hero__eyebrow">
+          <span></span>
+          Galería histórica
+        </div>
+
+        <h1>
+          Imágenes que conservan
+          <strong>la memoria del LAB.</strong>
+        </h1>
+
+        <p>
+          Una colección visual de aviones, aeropuertos, tripulación,
+          publicidad y recuerdos del Lloyd Aéreo Boliviano.
+        </p>
+      </article>
+
+      <article class="gallery-hero__visual animate__animated animate__fadeInRight">
+        <img src="/images/fleet/boeing-727.jpg" alt="Boeing 727 LAB">
+        <div>
+          <span>Archivo visual</span>
+          <strong>Lloyd Aéreo Boliviano</strong>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="gallery-section">
+
+    <div class="gallery-section__container">
+
+      <div class="gallery-section__header">
+        <div>
+          <span class="gallery-section__label">Colección</span>
+          <h2>Explora la galería por categoría.</h2>
+        </div>
+
+        <p>
+          Organiza las imágenes por aviones, aeropuertos, tripulación,
+          publicidad antigua y recuerdos históricos.
+        </p>
+      </div>
+
+      <div class="gallery-filters">
+        <button
+          type="button"
+          class="gallery-filters__button"
+          *ngFor="let category of categories"
+          [class.gallery-filters__button--active]="selectedCategory === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category }}
+        </button>
+      </div>
+
+      <div class="gallery-grid">
+
+        <article
+          class="gallery-card"
+          *ngFor="let image of filteredImages"
+          (click)="openImage(image)"
+        >
+          <img [src]="image.image" [alt]="image.title">
+
+          <div class="gallery-card__overlay">
+            <span>{{ image.category }}</span>
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div
+    class="gallery-modal"
+    *ngIf="selectedImage as image"
+    (click)="closeImage()"
+  >
+    <div class="gallery-modal__content" (click)="$event.stopPropagation()">
+      <button type="button" (click)="closeImage()">×</button>
+
+      <img [src]="image.image" [alt]="image.title">
+
+      <div>
+        <span>{{ image.category }} · {{ image.year }}</span>
+        <h2>{{ image.title }}</h2>
+        <p>{{ image.description }}</p>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,322 @@
+.routes-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.routes-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+  background-size: 54px 54px;
+  pointer-events: none;
+}
+
+.routes-hero,
+.routes-section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 2.5rem) 3rem;
+}
+
+.routes-section {
+  padding-top: 2rem;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.routes-hero__container,
+.routes-section__container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.routes-hero__container {
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.routes-hero__eyebrow {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.2rem;
+  padding: 0.58rem 0.9rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-weight: 900;
+}
+
+.routes-hero__eyebrow span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--lab-gold);
+}
+
+.routes-hero h1 {
+  margin: 0;
+  font-size: clamp(2.7rem, 6vw, 5.7rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.routes-hero h1 strong {
+  display: block;
+  color: transparent;
+  background: linear-gradient(135deg, var(--lab-white), var(--lab-sky), var(--lab-gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.routes-hero p {
+  max-width: 720px;
+  color: var(--lab-muted);
+  font-size: clamp(1rem, 2vw, 1.16rem);
+  line-height: 1.85;
+}
+
+.routes-map {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 48% 48%, rgba(246, 196, 83, 0.14), transparent 26%),
+    radial-gradient(circle at top right, rgba(0, 166, 214, 0.22), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035));
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.28);
+}
+
+.routes-map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.routes-map > strong {
+  position: absolute;
+  left: 2rem;
+  bottom: 4.5rem;
+  font-size: clamp(5rem, 14vw, 9rem);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.routes-map > small {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  color: var(--lab-white);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.routes-map__point {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  color: var(--lab-white);
+  background: rgba(5, 9, 20, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-weight: 900;
+}
+
+.routes-map__point span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--lab-gold);
+  box-shadow: 0 0 18px rgba(246, 196, 83, 0.9);
+}
+
+.routes-map__point--cochabamba {
+  top: 47%;
+  left: 42%;
+}
+
+.routes-map__point--lapaz {
+  top: 31%;
+  left: 30%;
+}
+
+.routes-map__point--santacruz {
+  top: 44%;
+  right: 18%;
+}
+
+.routes-map__line {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--lab-sky), var(--lab-gold), transparent);
+  transform-origin: left center;
+  opacity: 0.75;
+}
+
+.routes-map__line--one {
+  top: 40%;
+  left: 35%;
+  width: 180px;
+  transform: rotate(22deg);
+}
+
+.routes-map__line--two {
+  top: 50%;
+  left: 46%;
+  width: 180px;
+  transform: rotate(-8deg);
+}
+
+.routes-map__line--three {
+  top: 36%;
+  left: 43%;
+  width: 240px;
+  transform: rotate(-28deg);
+}
+
+.routes-section__header {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: end;
+}
+
+.routes-section__label {
+  color: var(--lab-gold);
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+}
+
+.routes-section__header h2 {
+  margin: 0.8rem 0 0;
+  font-size: clamp(1.9rem, 4.5vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.routes-section__header p {
+  color: var(--lab-muted);
+  line-height: 1.8;
+}
+
+.route-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.4rem;
+  padding: 0.8rem;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.route-filters__button {
+  border: 0;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.055);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.route-filters__button--active {
+  color: #061120;
+  background: linear-gradient(135deg, var(--lab-gold), #ffe49a);
+}
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.route-card {
+  min-height: 240px;
+  padding: 1.25rem;
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.2);
+}
+
+.route-card--highlight {
+  border-color: rgba(246, 196, 83, 0.38);
+}
+
+.route-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.route-card__top span {
+  color: var(--lab-gold);
+  font-weight: 950;
+}
+
+.route-card__top strong {
+  color: var(--lab-muted);
+}
+
+.route-card h3 {
+  margin: 1rem 0 0.3rem;
+  font-size: 1.7rem;
+}
+
+.route-card small {
+  color: rgba(255, 255, 255, 0.76);
+  font-weight: 800;
+}
+
+.route-card p {
+  margin-top: 1rem;
+  color: var(--lab-muted);
+  line-height: 1.75;
+}
+
+@media (max-width: 1050px) {
+  .routes-hero__container,
+  .routes-section__header {
+    grid-template-columns: 1fr;
+  }
+
+  .routes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .routes-map {
+    min-height: 400px;
+  }
+}

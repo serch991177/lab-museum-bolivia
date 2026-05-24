@@ -1,1 +1,114 @@
-<p>videos works!</p>
+<section class="videos-page">
+
+  <section class="videos-hero">
+
+    <div class="videos-hero__container">
+
+      <article class="videos-hero__content animate__animated animate__fadeInLeft">
+        <div class="videos-hero__eyebrow">
+          <span></span>
+          Archivo audiovisual
+        </div>
+
+        <h1>
+          Videos históricos
+          <strong>del Lloyd Aéreo Boliviano.</strong>
+        </h1>
+
+        <p>
+          Una colección audiovisual para recordar aviones, rutas, comerciales,
+          despegues, aterrizajes y momentos históricos del LAB.
+        </p>
+      </article>
+
+      <article class="videos-hero__panel animate__animated animate__fadeInRight">
+        <strong>LAB</strong>
+        <span>Memoria audiovisual de la aviación boliviana</span>
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="featured-video" *ngIf="featuredVideo as video">
+
+    <div class="featured-video__container">
+
+      <div class="featured-video__frame">
+        <iframe
+          [src]="getVideoUrl(video.youtubeId)"
+          [title]="video.title"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <div class="featured-video__content">
+        <span>Video destacado</span>
+        <h2>{{ video.title }}</h2>
+        <p>{{ video.description }}</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="videos-gallery">
+
+    <div class="videos-gallery__container">
+
+      <div class="videos-gallery__header">
+        <div>
+          <span class="videos-gallery__label">Colección</span>
+          <h2>Explora los videos por categoría.</h2>
+        </div>
+
+        <p>
+          Filtra entre documentales, despegues, aterrizajes,
+          comerciales antiguos y recuerdos del LAB.
+        </p>
+      </div>
+
+      <div class="video-filters">
+        <button
+          type="button"
+          *ngFor="let category of categories"
+          class="video-filters__button"
+          [class.video-filters__button--active]="selectedCategory === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category }}
+        </button>
+      </div>
+
+      <div class="video-grid">
+
+        <article
+          class="video-card"
+          *ngFor="let video of filteredVideos"
+        >
+          <div class="video-card__frame">
+            <iframe
+              [src]="getVideoUrl(video.youtubeId)"
+              [title]="video.title"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-card__content">
+            <div class="video-card__meta">
+              <span>{{ video.category }}</span>
+              <small>{{ video.year }}</small>
+            </div>
+
+            <h3>{{ video.title }}</h3>
+            <p>{{ video.description }}</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
