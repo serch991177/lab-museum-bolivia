@@ -1,1 +1,214 @@
-<p>fleet works!</p>
+<section class="fleet-page">
+
+  <div class="fleet-page__glow fleet-page__glow--blue"></div>
+  <div class="fleet-page__glow fleet-page__glow--gold"></div>
+
+  <section class="fleet-hero">
+
+    <div class="fleet-hero__container">
+
+      <article class="fleet-hero__content animate__animated animate__fadeInLeft">
+
+        <div class="fleet-hero__eyebrow">
+          <span></span>
+          Flota histórica
+        </div>
+
+        <h1>
+          Los aviones que escribieron
+          <strong>la historia del LAB.</strong>
+        </h1>
+
+        <p>
+          Desde los primeros Junkers hasta los Boeing de la era jet,
+          la flota del Lloyd Aéreo Boliviano cuenta la evolución técnica,
+          comercial y emocional de una aerolínea que marcó a Bolivia.
+        </p>
+
+        <div class="fleet-hero__stats">
+          <div
+            class="fleet-hero__stat"
+            *ngFor="let stat of fleetStats"
+          >
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="fleet-hero__visual animate__animated animate__fadeInRight">
+
+        <div class="fleet-hero__image">
+          <img
+            src="/images/fleet/lab-fleet-hero.jpg"
+            alt="Avión histórico del Lloyd Aéreo Boliviano"
+          >
+
+          <div class="fleet-hero__image-caption">
+            <span>Archivo visual</span>
+            <strong>Flota Lloyd Aéreo Boliviano</strong>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section
+    class="boeing-special"
+    *ngIf="featuredAircraft as boeing"
+  >
+
+    <div class="boeing-special__container">
+
+      <article class="boeing-special__image">
+        <img
+          [src]="boeing.image"
+          [alt]="boeing.name"
+        >
+      </article>
+
+      <article class="boeing-special__content">
+
+        <span class="boeing-special__label">
+          Aeronave destacada
+        </span>
+
+        <h2>
+          {{ boeing.name }},
+          <strong>el símbolo de la era jet del LAB.</strong>
+        </h2>
+
+        <p>
+          {{ boeing.description }}
+        </p>
+
+        <div class="boeing-special__facts">
+
+          <div>
+            <span>Modelo</span>
+            <strong>{{ boeing.model }}</strong>
+          </div>
+
+          <div>
+            <span>Introducido</span>
+            <strong>{{ boeing.introduced }}</strong>
+          </div>
+
+          <div>
+            <span>Tipo</span>
+            <strong>{{ boeing.specs.engines }}</strong>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="fleet-gallery">
+
+    <div class="fleet-gallery__container">
+
+      <div class="fleet-gallery__header">
+
+        <div>
+          <span class="fleet-gallery__label">
+            Catálogo de aeronaves
+          </span>
+
+          <h2>
+            Explora la flota por etapas.
+          </h2>
+        </div>
+
+        <p>
+          Filtra por aeronaves pioneras, clásicas, jets e internacionales
+          para recorrer la evolución del LAB a través de sus aviones.
+        </p>
+
+      </div>
+
+      <div class="fleet-filters">
+
+        <button
+          type="button"
+          class="fleet-filters__button"
+          *ngFor="let category of categories"
+          [class.fleet-filters__button--active]="selectedCategory === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category }}
+        </button>
+
+      </div>
+
+      <div class="fleet-grid">
+
+        <article
+          class="aircraft-card"
+          *ngFor="let aircraft of filteredAircraft"
+          [class.aircraft-card--highlight]="aircraft.highlight"
+        >
+
+          <div class="aircraft-card__image">
+            <img
+              [src]="aircraft.image"
+              [alt]="aircraft.name"
+            >
+
+            <div class="aircraft-card__badge">
+              {{ aircraft.category }}
+            </div>
+          </div>
+
+          <div class="aircraft-card__content">
+
+            <div class="aircraft-card__meta">
+              <span>{{ aircraft.introduced }}</span>
+              <small>{{ aircraft.retired }}</small>
+            </div>
+
+            <h3>{{ aircraft.name }}</h3>
+
+            <strong>{{ aircraft.model }}</strong>
+
+            <p>
+              {{ aircraft.shortDescription }}
+            </p>
+
+            <div class="aircraft-card__specs">
+
+              <div>
+                <span>Rol</span>
+                <strong>{{ aircraft.specs.role }}</strong>
+              </div>
+
+              <div>
+                <span>Motores</span>
+                <strong>{{ aircraft.specs.engines }}</strong>
+              </div>
+
+              <div>
+                <span>Etapa</span>
+                <strong>{{ aircraft.specs.era }}</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
