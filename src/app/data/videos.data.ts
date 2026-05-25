@@ -31,7 +31,7 @@ export const LAB_VIDEOS: LabVideo[] = [
       'Video documental sobre la historia, legado y memoria del LAB.',
     category: 'Documental',
     year: 'Archivo',
-    youtubeId: 'VIDEO_ID_AQUI',
+    youtubeId: 'MrYlw0HHFl0',
     featured: true
   },
   {
@@ -40,7 +40,7 @@ export const LAB_VIDEOS: LabVideo[] = [
       'Registro visual del Boeing 727, una de las aeronaves más recordadas del Lloyd Aéreo Boliviano.',
     category: 'Despegues',
     year: 'Archivo',
-    youtubeId: 'VIDEO_ID_AQUI'
+    youtubeId: 'PPgOAT5Z5gE'
   },
   {
     title: 'Aterrizaje LAB en Bolivia',
@@ -48,7 +48,7 @@ export const LAB_VIDEOS: LabVideo[] = [
       'Material histórico o de aficionados mostrando operaciones del LAB.',
     category: 'Aterrizajes',
     year: 'Archivo',
-    youtubeId: 'VIDEO_ID_AQUI'
+    youtubeId: 'iE9gxd5mZVA'
   },
   {
     title: 'Comercial antiguo del LAB',
@@ -56,7 +56,7 @@ export const LAB_VIDEOS: LabVideo[] = [
       'Publicidad histórica relacionada con la marca Lloyd Aéreo Boliviano.',
     category: 'Comerciales',
     year: 'Archivo',
-    youtubeId: 'VIDEO_ID_AQUI'
+    youtubeId: '2vn0Sz5PwJY'
   },
   {
     title: 'Recuerdos de pasajeros',
